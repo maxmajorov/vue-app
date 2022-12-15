@@ -1,20 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+    <div class="home container">
+        <FilterView></FilterView>
+        <CenterSection></CenterSection>
+    </div>
 </template>
 
-<script lang="ts">
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-
+<script>
+import FilterView from '@/components/FilterView';
+import CenterSection from '@/components/CenterSection';
 export default {
-  data() {
-    return {
-      text: "text-1",
-    };
-  },
-
-  components: { HelloWorld },
+    components: { FilterView, CenterSection },
 };
 </script>
+<style scoped lang="scss">
+.home {
+    display: flex;
+}
+</style>

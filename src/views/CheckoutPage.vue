@@ -1,10 +1,10 @@
 <template>
-  <h1>This is a checkout page (Modal window)</h1>
+    <h1>This is a checkout page (Modal window)</h1>
 </template>
 
 <script>
 export default {
-  name: "CheckoutPage",
+    name: 'CheckoutPage',
 };
 </script>
 

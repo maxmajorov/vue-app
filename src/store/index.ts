@@ -1,29 +1,19 @@
-// import { createStore } from "vuex";
-//
-// export default createStore({
-//   state: {},
-//   getters: {},
-//   mutations: {},
-//   actions: {},
-//   modules: {},
-// });
-
-import { InjectionKey } from "vue";
-import { createStore, Store } from "vuex";
-import Products from "../modules/Products";
+import { InjectionKey } from 'vue';
+import { createStore, Store } from 'vuex';
+import Products from './modules/Products';
 
 export interface RootState {
-  modules: {
-    Products: typeof Products;
-  };
+    modules: {
+        Products: typeof Products;
+    };
 }
 
 export const key: InjectionKey<Store<RootState>> = Symbol();
 
 const store = createStore<RootState>({
-  modules: {
-    Products,
-  },
+    modules: {
+        Products,
+    },
 });
 
 export default store;
