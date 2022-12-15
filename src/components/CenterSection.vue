@@ -1,6 +1,5 @@
 <template>
     <div class="center-section">
-        <!--      <img alt="Vue logo" src="../assets/logo.png" />-->
         <p>{{ categories }}</p>
         <p>{{ text }}</p>
         <p>{{ getCategories }}</p>
@@ -9,13 +8,22 @@
             Select number of products -
             <input type="number" min="0" max="100" @change="getData()" v-model="limit" />
         </p>
-        {{ productsList }}
+
+        <div class="product-list">
+            <ProductItem
+                v-for="product in productsList.products"
+                :key="product.id"
+                v-bind:product="product"
+            ></ProductItem>
+        </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
 import { mapActions, mapGetters, mapState } from 'vuex';
+import ProductItem from '@/components/ProductItem';
+
 export default {
     data() {
         return {
@@ -33,6 +41,7 @@ export default {
     async mounted() {
         this.loading = true;
         await this.getCat();
+        await this.getData();
         this.loading = false;
     },
     computed: {
@@ -47,12 +56,15 @@ export default {
         // mutations && actions
         ...mapActions('Categories', ['getCat']),
         getData() {
-            axios.get(this.url + this.limit).then((response) => {
+            axios.get(this.url + `${!this.limit ? 5 : this.limit}`).then((response) => {
                 this.productsList = response.data;
             });
         },
     },
-    // components: { HelloWorld },
+
+    components: {
+        ProductItem,
+    },
 };
 </script>
 

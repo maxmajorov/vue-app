@@ -1,7 +1,7 @@
 <template>
     <aside class="filter">
         <div>
-            <h1>I`m a filter section</h1>
+            <h1>Filter section</h1>
         </div>
     </aside>
 </template>
@@ -16,8 +16,6 @@ export default {
 .filter {
     align-self: stretch;
     flex-basis: 20%;
-}
-aside {
     border: 1px solid red;
 }
 </style>

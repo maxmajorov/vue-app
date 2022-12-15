@@ -1,7 +1,7 @@
 import { RootState } from '@/store';
 import { ActionTree, MutationTree, GetterTree } from 'vuex';
 
-export interface ProdArr {
+export interface IProduct {
     id: number;
     title: string;
     description: string;
@@ -15,19 +15,19 @@ export interface ProdArr {
     images: Array<string>;
 }
 
-export const getters: GetterTree<Array<ProdArr>, RootState> = {
+export const getters: GetterTree<Array<IProduct>, RootState> = {
     getProduct(state) {
         return state;
     },
 };
 
-export const mutations: MutationTree<Array<ProdArr>> = {
-    addProduct(state, val: ProdArr) {
+export const mutations: MutationTree<Array<IProduct>> = {
+    addProduct(state, val: IProduct) {
         state.push(val);
     },
 };
 
-const actions: ActionTree<ProdArr, RootState> = {
+const actions: ActionTree<IProduct, RootState> = {
     addNewProduct({ commit }, payload: string) {
         commit('addProduct', payload);
     },
@@ -35,7 +35,7 @@ const actions: ActionTree<ProdArr, RootState> = {
 
 export default {
     state: {
-        products: [] as ProdArr[],
+        products: [] as IProduct[],
     },
     getters,
     mutations,

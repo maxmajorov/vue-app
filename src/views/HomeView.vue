@@ -8,6 +8,7 @@
 <script>
 import FilterView from '@/components/FilterView';
 import CenterSection from '@/components/CenterSection';
+
 export default {
     components: { FilterView, CenterSection },
 };
