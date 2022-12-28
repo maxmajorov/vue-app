@@ -1,4 +1,5 @@
 <template>
+    <HeaderView />
     <nav>
         <router-link :to="{ name: 'home' }">Home</router-link> |
         <router-link :to="{ name: 'cart' }">Cart</router-link> |
@@ -8,12 +9,19 @@
     </nav>
     <router-view />
 </template>
-<script>
-export default {
+
+<script lang="ts">
+import HeaderView from './components/common/HeaderView.vue';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
     data() {
         return {};
     },
-};
+    components: {
+        HeaderView,
+    },
+});
 </script>
 <style lang="scss">
 #app {
